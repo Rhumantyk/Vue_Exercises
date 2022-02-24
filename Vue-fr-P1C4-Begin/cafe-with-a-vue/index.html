@@ -19,7 +19,7 @@
 
 			<section class="menu">
 				<h2>Menu</h2>
-				<div v-for="item in simpleMenu" :key="item.name" class="menu-item">
+				<div v-for="item in simpleMenu" :key="item.name" class="menu-item"> <!-- :key="item.name" Sert à quoi ???? -->
 					<img
 						class="menu-item__image"
 						:src="item.image.source"
@@ -30,9 +30,7 @@
 						<p v-if="item.inStock">En stock</p>
 						<p v-else>En rupture de stock</p>
 						<div>
-							<label for="add-item-quantity"
-								>Quantité : {{ item.quantity }}</label
-							>
+							<label for="add-item-quantity">Quantité : {{ item.quantity }}</label>
 							<input
 								v-model.number="item.quantity"
 								id="add-item-quantity"
@@ -69,16 +67,19 @@
 		<script>
 			const app = new Vue({
 				el: "#app",
-				data: {
+				data:
+				{
 					address: "18 avenue du Beurre, Paris, France",
 					email: "hello@cafewithavue.bakery",
 					phone: "01 88 88 88 88",
 					restaurantName: "La belle vue",
 					shoppingCart: 0,
-					simpleMenu: [
+					simpleMenu:
+					[
 						{
 							name: "Croissant",
-							image: {
+							image:
+							{
 								source: "./images/croissant.jpg",
 								alt: "Un croissant"
 							},
@@ -87,7 +88,8 @@
 						},
 						{
 							name: "Baguette de pain",
-							image: {
+							image:
+							{
 								source: "./images/french-baguette.jpeg",
 								alt: "Quatre baguettes de pain"
 							},
@@ -96,7 +98,8 @@
 						},
 						{
 							name: "Éclair",
-							image: {
+							image:
+							{
 								source: "./images/eclair.jpg",
 								alt: "Éclair au chocolat"
 							},
@@ -105,15 +108,19 @@
 						}
 					]
 				},
-				computed: {
-					copyright() {
+				computed:
+				{
+					copyright()
+					{
 						const currentYear = new Date().getFullYear()
 
 						return `Copyright ${this.restaurantName} ${currentYear}`
 					}
 				},
-				methods: {
-					addToShoppingCart(amount) {
+				methods:
+				{
+					addToShoppingCart(amount)
+					{
 						this.shoppingCart += amount
 					}
 				}
